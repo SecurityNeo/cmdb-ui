@@ -1,0 +1,275 @@
+
+#backcont {
+    background-image: url('../static/bg.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+}
+
+
+#gifcont {
+    background-image: url('../static/login.gif');
+    width: auto;
+    height: 100%;
+    max-height: 90rem;
+    background-repeat: no-repeat;
+    background-position: 30%;
+}
+
+.meituan-content {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%,-50%);
+}
+
+
+.login-content {
+    width: 340px;
+    height: 300px;
+    background: #FFFFFF;
+    border-radius: 5px;
+}
+
+.login-title {
+
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.login-user {
+    width: 400px;
+    margin: 0 auto;
+    padding-top: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.login-user-p {
+    width: 280px;
+    color: #000000;
+    font-size: 30px;
+}
+
+.login-botton {
+    width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 40px 0 auto;
+    font-size: 16px;
+}
+
+.userInfo {
+    width: 180px;
+    height: 40px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+
+.inputflex {
+    flex: 1;
+}
+
+.sidebar-top {
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 50px;
+    color: #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+
+.sidebar-top div:nth-child(1) {
+    padding-left: 22px;
+    font-size: 18px;
+}
+
+.sidebar-top div:nth-child(2) {
+    padding-right: 22px;
+    cursor: pointer;
+}
+
+.sidebar-cont {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom: 50px;
+    background: #FFFFFF;
+    width: 200px;
+    height: 100vh;
+    color: #000000 !important;
+    font-size: 16px;
+    overflow-y: auto;
+}
+
+/* --- 主界面定位 --- */
+.oderding {
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    right: 0;
+    padding: 40px 0;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.heading {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.table-head {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.el-icon-placeholder {
+    font-family: element-icons!important;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 分页 */
+.pagination {
+    position: absolute;
+    margin-top: 20px;
+    right: 0;
+    bottom: 20px;
+}
+
+
+
+/* 如果接口返回内容为空，自动将其转换为--展示 */
+.cell:empty::before {
+    content: "--"
+}
+
+.dialog-padd {
+    border-bottom: 1px solid #f8f8f8;
+}
+
+.input-float {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+
+.input_key {
+    text-align: right;
+    width: 120px;
+    margin-right: 20px
+}
+
+.input_value {
+    width: 300px;
+}
+
+.input_block_title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    width: 480px;
+    border-bottom: 2px solid rgb(0, 153, 255);    
+}
+
+.kv_display{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+.k_display{
+    margin-right: 15px;
+    width: 150px;
+    text-align: justify;
+}
+
+.topo_block{
+    margin-bottom: 15px;
+    width: 750px;
+    border-bottom: 2px solid rgb(0, 153, 255); 
+}
+
+.topo_title{
+    margin-bottom: 15px;
+    align-items: left;
+}
+
+.topo_value{
+    margin-right: 20px;
+    width: 180px;
+    align-items: left;  
+}
+
+.topo_list{
+    width: 800px; 
+    margin-left: 60px;  
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgb(0, 153, 255); 
+}
+
+/* --- 大于1700px --- */
+@media screen and (min-width: 1700px) {
+    .oderding {
+        max-width: 1400px;
+    }
+}
+
+@media screen and (max-width: 1650px) {
+    .oderding {
+        max-width: 1200px;
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .oderding {
+        max-width: 1100px;
+    }
+}
+
+@media screen and (max-width: 1430px) {
+    .oderding {
+        max-width: 1000px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .oderding {
+        max-width: 900px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .oderding {
+        max-width: 850px;
+    }
+}
