@@ -6,6 +6,11 @@
             <!-- 表格上方功能按钮 -->
             <div class="table-head">
                 <el-button type="primary" @click="clickAddVm" >新建虚拟机</el-button>
+                <div >
+                    <el-button>
+                        <el-icon @click="getVmList"><Refresh /></el-icon>
+                    </el-button>  
+                </div>    
             </div>
 
             <div>
@@ -93,6 +98,7 @@ import {View, Hide} from '@element-plus/icons-vue'
 import addVmDialog from './components/addvm-dialog.vue'
 import updateVmDialog from './components/updatevm-dialog.vue'
 import deleteVmDialog from './components/deletevm-dialog.vue'
+import { Refresh} from '@element-plus/icons-vue'
 
 
 
@@ -104,7 +110,8 @@ export default {
         Hide,
         addVmDialog,
         updateVmDialog,
-        deleteVmDialog
+        deleteVmDialog,
+        Refresh
     },
     setup() {
         const config = reactive({
@@ -203,7 +210,8 @@ export default {
             addVmDialog,
             updateVmDialog,
             deleteVmDialog,
-            clickOpenTerminal
+            clickOpenTerminal,
+            Refresh
         }
     }
 }

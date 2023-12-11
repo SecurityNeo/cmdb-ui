@@ -6,6 +6,11 @@
             <!-- 表格上方功能按钮 -->
             <div class="table-head">
                 <el-button type="primary"  @click="clickAddNetworks" >新建网络设备</el-button>
+                <div >
+                    <el-button>
+                        <el-icon @click="getNetworkList"><Refresh /></el-icon>
+                    </el-button>  
+                </div> 
             </div>
 
             <div>
@@ -96,7 +101,7 @@
 
 <script>
 import {reactive, toRefs, onMounted, getCurrentInstance, ref} from 'vue'
-import {View, Hide} from '@element-plus/icons-vue'
+import {View, Hide, Refresh} from '@element-plus/icons-vue'
 import addNetworksDialog from './components/addnetworks-dialog.vue'
 import updateNetworksDialog from './components/updatenetworks-dialog.vue'
 import deleteNetworksDialog from './components/deletenetworks-dialog.vue'
@@ -112,7 +117,8 @@ export default {
         updateNetworksDialog,
         deleteNetworksDialog,
         addInterfaceTopoDialog,
-        updateInterfaceTopoDialog
+        updateInterfaceTopoDialog,
+        Refresh
     },
     setup() {
         const config = reactive({
@@ -214,7 +220,8 @@ export default {
             updateNetworksDialog,
             deleteNetworksDialog,
             addInterfaceTopoDialog,
-            updateInterfaceTopoDialog
+            updateInterfaceTopoDialog,
+            Refresh
         }
     }
 }

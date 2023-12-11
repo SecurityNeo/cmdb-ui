@@ -6,6 +6,11 @@
             <!-- 表格上方功能按钮 -->
             <div class="table-head">
                 <el-button type="primary" @click="clickAddTag" >新建标签</el-button>
+                <div >
+                    <el-button>
+                        <el-icon @click="getTagList"><Refresh /></el-icon>
+                    </el-button>  
+                </div>    
             </div>
             
             <div>
@@ -55,13 +60,15 @@ import { getCurrentInstance,onMounted, reactive,toRefs,ref } from 'vue'
 import addTagDialog from './components/addtag-dialog.vue'
 import updateTagDialog from './components/updatetag-dialog.vue'
 import deleteTagDialog from './components/deletetag-dialog.vue'
+import { Refresh} from '@element-plus/icons-vue'
 import qs from 'qs'
 
 export default {
     components: {
         addTagDialog,
         updateTagDialog,
-        deleteTagDialog
+        deleteTagDialog,
+        Refresh
     },
     methods: {
         formatTime(row, column,cellValue){
@@ -143,7 +150,8 @@ export default {
             getTagList,
             addTagDialog,
             updateTagDialog,
-            deleteTagDialog
+            deleteTagDialog,
+            Refresh
         }
     }
 }

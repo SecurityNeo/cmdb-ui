@@ -7,7 +7,12 @@
             <div class="table-head">
                 <el-button type="primary" @click="clickAdduser" v-if="userRole === 'admin'" >新建用户</el-button>
                 <el-button type="primary" v-else disabled >新建用户</el-button>
-            </div>
+                <div >
+                    <el-button>
+                        <el-icon @click="getUserList"><Refresh /></el-icon>
+                    </el-button>  
+                </div>                
+            </div>    
             
             <div>
                 <!-- 用户表格 -->
@@ -76,13 +81,15 @@ import { getCurrentInstance,onMounted, reactive,toRefs, ref  } from 'vue'
 import deleteUserDialog from './components/deleteuser-dialog.vue'
 import addUserDialog from './components/adduser-dialog.vue'
 import updateUserDialog from './components/updateuser-dialog.vue'
+import { Refresh} from '@element-plus/icons-vue'
 import qs from 'qs'
 
 export default {
     components: {
         deleteUserDialog,
         addUserDialog,
-        updateUserDialog
+        updateUserDialog,
+        Refresh
     },
     methods: {
         formatTime(row, column,cellValue){
@@ -174,7 +181,8 @@ export default {
             clickUpdateUser, 
             deleteUserDialog,
             addUserDialog,
-            updateUserDialog 
+            updateUserDialog,
+            Refresh 
         }
     }
 }

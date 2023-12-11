@@ -6,6 +6,11 @@
             <!-- 表格上方功能按钮 -->
             <div class="table-head">
                 <el-button type="primary"  @click="clickAddServer" >新建服务器</el-button>
+                <div >
+                    <el-button>
+                        <el-icon @click="getServerList"><Refresh /></el-icon>
+                    </el-button>  
+                </div>   
             </div>
 
             <div>
@@ -113,7 +118,7 @@ import {reactive, toRefs, onMounted, getCurrentInstance, ref} from 'vue'
 import addServerDialog from './components/addserver-dialog.vue'
 import updateServerDialog from './components/updateserver-dialog.vue'
 import deleteServerDialog from './components/deleteserver-dialog.vue'
-import {View, Hide} from '@element-plus/icons-vue'
+import {View, Hide, Refresh} from '@element-plus/icons-vue'
 import qs from 'qs'
 
 export default {
@@ -122,7 +127,8 @@ export default {
         Hide,
         addServerDialog,
         updateServerDialog,
-        deleteServerDialog
+        deleteServerDialog,
+        Refresh
     },
     setup() {
         const config = reactive({
@@ -232,7 +238,8 @@ export default {
             addServerDialog,
             updateServerDialog,
             deleteServerDialog,
-            clickOpenTerminal
+            clickOpenTerminal,
+            Refresh
         }
     }
 }
