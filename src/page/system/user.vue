@@ -33,7 +33,7 @@
                             </template>
                             </el-table-column>
                         <el-table-column prop="CreatedAt" :formatter="formatTime" label="创建时间"  />
-                        <el-table-column fixed="right" label="操作" width="120">
+                        <el-table-column fixed="right" label="操作" width="180">
                             <template #default="scope">
                                 <!-- 系统管理员不允许编辑与删除 -->
                                 <!-- 系统管理员可以操作所有普通用户数据 -->
@@ -41,6 +41,9 @@
                                 <el-button link type="primary" size="small" v-if="scope.row.id === 1 " disabled>编辑</el-button>
                                 <el-button link type="primary" size="small" v-else-if="userRole === 'user' && JSON.stringify(scope.row.id) !== userId " disabled>编辑</el-button>
                                 <el-button link type="primary" size="small" v-else @click="clickUpdateUser(scope.row)" >编辑</el-button>
+                                <el-button link type="primary" size="small" v-if="scope.row.id === 1 " disabled>修改密码</el-button>
+                                <el-button link type="primary" size="small" v-else-if="userRole === 'user' && JSON.stringify(scope.row.id) !== userId " disabled>修改密码</el-button>
+                                <el-button link type="primary" size="small" v-else @click="clickResetPwd(scope.row)" >修改密码</el-button>
                                 <el-button link type="primary" size="small" v-if="scope.row.id === 1" disabled>删除</el-button>
                                 <el-button link type="primary" size="small" v-else-if="userRole === 'user'" disabled>删除</el-button>
                                 <el-button link type="primary" size="small" v-else @click="clickDelete(scope.row.id)" >删除</el-button>
@@ -71,6 +74,8 @@
         <addUserDialog ref="addUserDialog" @flushPage="getUserList"></addUserDialog>
         <!-- 编辑用户弹窗 -->
         <updateUserDialog ref="updateUserDialog" @flushPage="getUserList"></updateUserDialog>
+        <!-- 重置用户密码弹窗 -->
+        <resetPwdDialogVue ref="resetPwdDialogVue"  @flushPage="getUserList"></resetPwdDialogVue>
 
     </div>
 </template>
@@ -81,6 +86,7 @@ import { getCurrentInstance,onMounted, reactive,toRefs, ref  } from 'vue'
 import deleteUserDialog from './components/deleteuser-dialog.vue'
 import addUserDialog from './components/adduser-dialog.vue'
 import updateUserDialog from './components/updateuser-dialog.vue'
+import resetPwdDialogVue from './components/resetpwd-dialog.vue'
 import { Refresh} from '@element-plus/icons-vue'
 import qs from 'qs'
 
@@ -89,7 +95,8 @@ export default {
         deleteUserDialog,
         addUserDialog,
         updateUserDialog,
-        Refresh
+        Refresh,
+        resetPwdDialogVue
     },
     methods: {
         formatTime(row, column,cellValue){
@@ -101,6 +108,7 @@ export default {
         let deleteUserDialog = ref()
         let addUserDialog = ref()
         let updateUserDialog = ref()
+        let resetPwdDialogVue = ref()
         const config = reactive({
             userRole: "",
             userId: ''
@@ -170,6 +178,10 @@ export default {
             updateUserDialog.value.updateUserDialog(user)
         }
 
+        const clickResetPwd = (user) => {
+            resetPwdDialogVue.value.resetPwdDialog(user)
+        }
+
         return {
             ...toRefs(config),
             ...toRefs(users), 
@@ -179,9 +191,11 @@ export default {
             getUserList, 
             clickAdduser,
             clickUpdateUser, 
+            clickResetPwd,
             deleteUserDialog,
             addUserDialog,
             updateUserDialog,
+            resetPwdDialogVue,
             Refresh 
         }
     }

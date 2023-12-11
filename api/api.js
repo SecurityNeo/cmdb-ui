@@ -1,4 +1,4 @@
-const ip = "10.210.20.34"
+const ip = "10.210.20.33"
 const port = "18080"
 const url = `http://${ip}:${port}`
 
@@ -12,6 +12,7 @@ const urls = class {
         const userdelete = `${url}/api/v1/user/delete`
         const useradd = `${url}/api/v1/user/add`
         const userupdate = `${url}/api/v1/user/update`
+        const userpwdupdate = `${url}/api/v1/user/pwd/update`
 
         const serverlist = `${url}/api/v1/resource/host/list`
         const serseradd = `${url}/api/v1/resource/host/add`
@@ -47,6 +48,7 @@ const urls = class {
             userdelete,
             useradd,
             userupdate,
+            userpwdupdate,
             serverlist,
             serverdetail,
             tagList,
